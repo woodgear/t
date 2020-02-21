@@ -1,4 +1,7 @@
 {
     "tag":["rust","cli","log"],
-    "kind":"single"
+    "kind":"single",
+    "tepmlate":{
+        "prefix":"_t_"
+    }
 }
