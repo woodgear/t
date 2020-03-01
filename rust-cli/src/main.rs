@@ -36,7 +36,7 @@ fn app() ->Result<(),failure::Error>{
 
 fn main() {
     if let Err(e)  = app() {
-        println!("{:?}",e);
+        eprintln!("{:?}",e);
         error!("{:?}",e);
         std::process::exit(-1);
     }
