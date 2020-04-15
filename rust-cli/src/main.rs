@@ -29,13 +29,16 @@ fn init_log(config:&str) ->Result<(),failure::Error> {
 }
 
 fn app() ->Result<(),failure::Error>{
-    init_log(std::include_str!("./log.yaml"))?;
     info!("start");
     Ok(())
 }
 
 fn main() {
-    if let Err(e)  = app() {
+    let ret = ||->Result<(),failure::Error> {
+        init_log(std::include_str!("./log.yaml"))?;
+        app()
+    }();
+    if let Err(e)  = ret {
         eprintln!("{:?}",e);
         error!("{:?}",e);
         std::process::exit(-1);
