@@ -20,3 +20,7 @@ context-attribute = { git = "https://github.com/woodgear/context-attribute" ,bra
 version = "1"
 default-features = false # Disable features which are enabled by default
 features = ["prepush-hook", "run-cargo-test", "run-cargo-clippy"]
+
+[profile.release]
+lto = true
+debug = true
