@@ -1,46 +1,18 @@
-use log::*;
-use context_attribute::context;
-use failure::ResultExt;
+mod util;
 
-#[context(fn)]
-fn init_log(config:&str) ->Result<(),failure::Error> {
-    use log4rs::{
-        config::Config,
-        file::{Deserializers, RawConfig},
-        Logger,
-    };
-    
-    use serde_yaml;
-    let log4rs_config: RawConfig = serde_yaml::from_str(config)?;
+use tracing::{error, info};
 
-    let (appenders, _) = log4rs_config.appenders_lossy(&Deserializers::default());
-
-    let (config, _) = Config::builder()
-        .appenders(appenders)
-        .loggers(log4rs_config.loggers())
-        .build_lossy(log4rs_config.root());
-
-    let log4rs_logger = Logger::new(config);
-
-    let logger = Box::new(log4rs_logger);
-    log::set_max_level(log::LevelFilter::Info);
-    log::set_boxed_logger(logger)?;
-    Ok(())
-}
-
-fn app() ->Result<(),failure::Error>{
-    info!("start");
+fn app() -> Result<(), failure::Error> {
     Ok(())
 }
 
 fn main() {
-    let ret = ||->Result<(),failure::Error> {
-        init_log(std::include_str!("./log.yaml"))?;
-        app()
-    }();
-    if let Err(e)  = ret {
-        eprintln!("{:?}",e);
-        error!("{:?}",e);
+    util::init_trace();
+    info!("start");
+
+    if let Err(e) = app() {
+        eprintln!("{:?}", e);
+        error!("{:?}", e);
         std::process::exit(-1);
     }
 }
