@@ -1,3 +1,7 @@
+#![deny(warnings)]
+#![allow(clippy::needless_return)]
+#![allow(clippy::cast_ptr_alignment)]
+
 mod util;
 
 use tracing::{error, info};
