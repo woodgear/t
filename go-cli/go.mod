@@ -1,7 +1,5 @@
-module github.com/woodgear/go-cli
+module _t_main_t_
 
 go 1.14
 
-require (
-	github.com/sirupsen/logrus v1.4.1
-)
+require go.uber.org/zap v1.15.0
