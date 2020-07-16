@@ -1,0 +1,7 @@
+{
+    "tag":["golang","cli","test"],
+    "kind":"single",
+    "template":{
+        "prefix":"_t_"
+    }
+}
