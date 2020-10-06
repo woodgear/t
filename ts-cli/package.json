@@ -10,10 +10,10 @@
     "author": "wg",
     "license": "ISC",
     "devDependencies": {
-        "@types/jest": "^25.2.1",
-        "jest": "^25.5.4",
-        "ts-jest": "^25.4.0",
-        "ts-node": "^8.10.1",
-        "typescript": "^3.8.3"
+        "@types/jest": "^26.0.14",
+        "jest": "^26.5.0",
+        "ts-jest": "^26.4.1",
+        "ts-node": "^9.0.0",
+        "typescript": "^4.0.3"
     }
 }
