@@ -1,5 +1,7 @@
+import { ping } from "./lib"
+
 async function main(): Promise<void> {
-    console.log("hello")
+    ping();
 }
 
 main()

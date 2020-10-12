@@ -1,8 +1,8 @@
-import { ping } from "../src/lib"
+import { assert } from "chai";
+import { ping } from "src/lib";
 
-describe('lib test', () => {
-    test("ping test", async () => {
-        let res = await ping()
-        expect(res).toEqual("pong")
-    }, 1000 * 60 * 60)
+describe("", () => {
+    it("pin should ok", async () => {
+        assert.equal("pong", await ping())
+    });
 })
