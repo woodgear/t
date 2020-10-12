@@ -4,7 +4,8 @@
     "description": "",
     "main": "lib.js",
     "scripts": {
-        "test": "mocha -r ts-node/register tests/**/*.test.ts",
+        "test": "mocha -r tsconfig-paths/register -r ts-node/register tests/**/*.test.ts",
+        "coverage":"nyc npm run test",
         "run": "npm run build && node dist/main.js",
         "build": "tsc --project tsconfig.prod.json && tscpaths -p tsconfig.prod.json -s ./src -o ./dist"
     },
