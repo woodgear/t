@@ -1,12 +1,14 @@
 {
-    "name": "_t_name_t_",
+    "name": "easy",
     "version": "1.0.0",
     "description": "",
     "main": "lib.js",
     "scripts": {
         "test": "mocha -r tsconfig-paths/register -r ts-node/register tests/**/*.test.ts",
-        "coverage":"nyc npm run test",
-        "run": "npm run build && node dist/main.js",
+        "coverage": "nyc npm run test",
+        "lint": "eslint . --ext .ts",
+        "lint-fix": "eslint . --ext .ts --fix",
+        "start": "npm run build && node dist/main.js",
         "build": "tsc --project tsconfig.prod.json && tscpaths -p tsconfig.prod.json -s ./src -o ./dist"
     },
     "author": "wg",
@@ -14,13 +16,18 @@
     "devDependencies": {
         "@types/chai": "^4.2.13",
         "@types/mocha": "^8.0.3",
-        "mocha": "^8.1.3",
+        "@typescript-eslint/eslint-plugin": "^4.4.1",
+        "@typescript-eslint/parser": "^4.4.1",
         "chai": "^4.2.0",
+        "eslint": "^7.11.0",
+        "mocha": "^8.1.3",
         "nyc": "^15.1.0",
         "ts-node": "^9.0.0",
         "tsconfig-paths": "^3.9.0",
         "tscpaths": "0.0.9",
         "typescript": "^4.0.3"
     },
-    "dependencies": {}
+    "dependencies": {
+        "debug": "^4.2.0"
+    }
 }
