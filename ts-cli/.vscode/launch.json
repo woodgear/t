@@ -5,6 +5,9 @@
             "type": "node",
             "request": "launch",
             "name": "Debug Mocha",
+            "env": {
+                "TS_NODE_FILES": true
+            },
             "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
             "args": [
                 "-r",
@@ -35,6 +38,10 @@
                 "ts-node/register"
             ],
             "sourceMaps": true,
+            "env": {
+                "TS_NODE_FILES": true,
+            },
+            "console": "integratedTerminal",
             "cwd": "${workspaceRoot}",
             "protocol": "inspector",
         }
