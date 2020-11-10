@@ -13,13 +13,15 @@
         "check:spell": "npx cspell **/{*.ts,*.md}",
         "check:format": "prettier --config .prettierrc 'src/**/*.ts' --check",
         "check:test": "npm run test",
-        "check": "npm run check:lint && npm run check:spell && npm run check:format && npm run check:test",
+        "check:coverage": "nyc npm run test ",
+        "check": "npm run check:lint && npm run check:spell && npm run check:format && npm run check:coverage && npm run check:test",
         "fix:lint": "eslint . --ext .ts --fix",
         "fix:format": "prettier --config .prettierrc 'src/**/*.ts' --write"
     },
     "author": "wg",
     "license": "ISC",
     "devDependencies": {
+        "@istanbuljs/nyc-config-typescript": "^1.0.1",
         "@types/chai": "^4.2.13",
         "@types/mocha": "^8.0.3",
         "@typescript-eslint/eslint-plugin": "^4.4.1",

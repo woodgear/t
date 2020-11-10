@@ -1,7 +1,7 @@
-import { ping } from "./lib"
+import { ping } from './lib';
 
 async function main(): Promise<void> {
-    ping();
+  ping();
 }
 
-main()
+main();
